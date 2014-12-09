@@ -1,0 +1,16 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+USEFUL INFO
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+roslaunch laser_converter converter.launch --- Used to launch the code 
+
+rostopic pub /command std_msgs/Int32 3 --- Used to command the motor to spin
+                                          - 1 = Manual CCW
+                                          - 2 = Manual CW
+                                          - 3 = Stop
+                                          - 4 = Back and forth mode
+
+<param name="camera_frame_id" value="servo" />  --- Used to define camera frame in launch file but
+                                                    "servo" needs to be replaced
+
+
