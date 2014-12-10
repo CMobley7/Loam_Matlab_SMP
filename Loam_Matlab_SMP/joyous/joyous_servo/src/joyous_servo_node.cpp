@@ -11,16 +11,16 @@
 //Jack Newton, newtonj@vt.edu
 
 const static std::string base_link = "/servo";
-const static std::string odom = "/odom";
+const static std::string camera_init_2 = "/camera_init_2";
 tf::StampedTransform trans;
 
 void servo_callback(const std_msgs::Int32::ConstPtr& angle_msg)
 {
     ROS_INFO("angle: %d", angle_msg->data);
-    tf::Quaternion quat = tf::createQuaternionFromRPY(((angle_msg->data+90.0)/180.0)*M_PI, 0.0, 0.0);
+    tf::Quaternion quat = tf::createQuaternionFromRPY(((angle_msg->data+270.0)/180.0)*M_PI, 0.0, 0.0);
 
     trans.setOrigin(tf::Vector3(0.0, 0.0, 0.0));
-    trans.frame_id_ = odom;
+    trans.frame_id_ = camera_init_2;
     trans.child_frame_id_ = base_link;
     trans.setRotation(quat);
     trans.stamp_ = ros::Time::now(); //probably not valid, need to stamp the angle on the arduino itself
