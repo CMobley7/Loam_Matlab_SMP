@@ -1,5 +1,4 @@
 <launch>
-<param name="robot_description" command="cat $(find joyous_description)/urdf/smp.xml" />
 <node pkg="joyous_servo" 
       type="joyous_servo_node" 
       name="servo">
@@ -14,15 +13,13 @@
 <node pkg="laser_converter"
       type="laser_converter_node" 
       name="converter">
-      <param name="output_frame" value="odom" />
+      <param name="output_frame" value="camera_init_2" />
       <remap from="scans_in" to="scan" />
       <remap from="points_out" to="sync_scan_cloud_filtered"/>
 </node>
 <node pkg="usb_cam"
       type="usb_cam_node"
-      name="camera_init_2">
+      name="camera">
       <param name="/usb_cam/video_device" value="/dev/video1"/>
-     <param name="/usb_cam/camera_frame_id" value="camera_init_2" />
-     <remap from="cam/image_raw" to="image/raw"/>
 </node>
 </launch>
