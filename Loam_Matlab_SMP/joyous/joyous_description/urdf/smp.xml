@@ -1,7 +1,7 @@
 <robot name="smp">
   <link name="servo" />
   <link name="lidar" />
-  <link name="camera_init_2" />
+  <link name="camera" />
 
   <joint name="joint1" type="continuous">
     <parent link="servo"/>
@@ -11,7 +11,7 @@
   </joint>
  <joint name="joint2" type="fixed">
     <parent link="servo"/>
-    <child link="camera_init_2"/>
+    <child link="camera"/>
     <origin xyz="-0.0901 0 -0.932" rpy="0 0 0" />
     <axis xyz="0 0 0" />
   </joint>
